@@ -71,10 +71,6 @@ def parameter_set(opt):
     opt.checkpoints_dir = "./checkpoints/restoration"
     ##
 
-    if opt.Quality_restore:
-        opt.name = "mapping_quality"
-        opt.load_pretrainA = os.path.join(opt.checkpoints_dir, "VAE_A_quality")
-        opt.load_pretrainB = os.path.join(opt.checkpoints_dir, "VAE_B_quality")
     if opt.Scratch_and_Quality_restore:
         opt.NL_res = True
         opt.use_SN = True
@@ -85,11 +81,7 @@ def parameter_set(opt):
         opt.name = "mapping_scratch"
         opt.load_pretrainA = os.path.join(opt.checkpoints_dir, "VAE_A_quality")
         opt.load_pretrainB = os.path.join(opt.checkpoints_dir, "VAE_B_scratch")
-        if opt.HR:
-            opt.mapping_exp = 1
-            opt.inference_optimize = True
-            opt.mask_dilation = 3
-            opt.name = "mapping_Patch_Attention"
+      
 
 
 if __name__ == "__main__":
